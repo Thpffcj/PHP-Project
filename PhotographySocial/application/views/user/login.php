@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>摄影社交 登录</title>
+    <title>Ease life 登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,7 +18,7 @@
 <body>
 
 <div class="page-container">
-    <h1>摄影社交</h1>
+    <h1>Ease life</h1>
     <form id="loginForm" method="post">
         <input type="text" name="username" class="username" placeholder="用户名">
         <input type="password" name="password" class="password" placeholder="密码">
@@ -26,7 +26,7 @@
         <div class="error"><span>+</span></div>
     </form>
     <div class="connect">
-        <a href="" class="register">点击注册</a>
+        <a href="<?=base_url().'index.php/user/showRegister'?>" class="register">点击注册</a>
         <p>Or connect with:</p>
         <p>
             <a class="facebook" href=""></a>
