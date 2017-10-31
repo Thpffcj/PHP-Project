@@ -52,7 +52,7 @@ class User extends CI_Controller {
             $_SESSION['username'] = $result['username'];
 //            $_SESSION['up'] = $result['up'];
 //            $_SESSION['down'] = $result['down'];
-            redirect("/activity/showDynamicList");
+              redirect("/activity/showDynamicList");
             //获取展示的数据
         } else {
             $this->load->view('user/login');

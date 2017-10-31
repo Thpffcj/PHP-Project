@@ -22,6 +22,6 @@ class Activity extends CI_Controller {
 //            $this->load->view('template/header',$userInfo);
 //            $this->load->view("personal/personal",$data);
 //        }
-        $this->load->view('activity/dynamic_home_page');
+        $this->load->view('index');
     }
 }
