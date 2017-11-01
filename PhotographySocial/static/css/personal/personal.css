@@ -1,0 +1,62 @@
+body {
+    padding-top: 50px;
+    background-color: #f9f9f9;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+    color: #285e8e;
+}
+
+
+/* 两列右侧自适应布局 */
+.g-bd1{margin:0 0 10px;}
+.g-sd1{position:relative;float:left;width:150px;margin-right:-190px;}
+.g-mn1{float:right;width:100%;}
+.g-mn1c{margin-left:200px;}
+
+.my-header{
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #28a4c9;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* 无边图片容器-默认定宽定高、图片拉伸 */
+.u-img{display:block;position:relative;width:110px;height:110px;}
+.u-img,.u-img img{border-radius:5px;}
+.u-img img{display:block;width:100%;height:100%;}
+/* 图片高适应 */
+.u-img-ha,.u-img-ha img{height:auto;}
+
+img{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.media-width{
+    width: 700px;
+}
+
+/* 简易表单 */
+.m-form{line-height:29px;color:#555;}
+.m-form legend{font-size:14px;font-weight:bold;}
+.m-form .formitm{padding:20px 0 0;line-height:30px;}
+.m-form .formitm-1{padding-left:100px;}
+.m-form .lab{float:left;width:90px;margin-right:-90px;text-align:right;font-weight:bold;}
+.m-form .ipt{margin-left:100px;}
+.m-form .ipt *{vertical-align:middle;}
+.m-form .ipt a,.m-form .ipt a:hover{text-decoration:none;color:#3891eb;}
+.m-form .ipt img{height:32px;margin:0 15px 0 5px;}
+.m-form .ipt .domain{margin:0 0 0 5px;font-weight:bold;color:#777;}
+.m-form .ipt p{height:22px;line-height:22px;color:#999;}
+.m-form .tip{padding-top:10px;}
+.m-form .tip input{margin:0 5px 3px 0;}
+
+.my-register{
+    margin-left: 30%;
+    margin-right: 30%;
+}
