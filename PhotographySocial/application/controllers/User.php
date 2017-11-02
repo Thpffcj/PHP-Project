@@ -110,4 +110,54 @@ class User extends CI_Controller {
         $data['links'] = $this->pagination->create_links();
         $this->load->view('user/test', $data);
     }
+
+    public function file() {
+
+        $this->load->helper('url');
+        $this->load->view('user/file');
+    }
+
+    public function upload() {
+
+        // 上传目录需要手工创建
+        $config['upload_path'] = './uploads/';
+        // 允许扩展名
+        $config['allowed_types'] = 'gif|png|jpg|jpeg';
+        // 生成新文件名
+        $config['file_name'] = uniqid();
+
+        // 装载文件上传类
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('pic');
+
+//        var_dump($this->upload->data());
+
+        // 获取上传之后的数据
+        $data = $this->upload->data();
+        echo $data['file_name'];
+    }
+
+    public function login1() {
+
+        $this->load->library('session');
+
+        $user = array('id'=>3, 'name'=>'jack');
+
+        $this->session->set_userdata('user', $user);
+
+//        session_start();
+//        $_SESSION['user'] = $user;
+
+        // 不要在这里获取港航路的数据
+        // 只有页面重新加载后或跳转到别的url中，才能获取到
+    }
+
+    public function show_session() {
+
+        $this->load->library('session');
+
+        $user = $this->session->userdata('user');
+
+        var_dump($user);
+    }
 }

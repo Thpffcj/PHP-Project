@@ -69,7 +69,7 @@
 
             <div class="nav nav-pills nav-stacked" role="tablist">
                 <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-                    <li role="presentation"><a href="#stzb">我的相册</a></li>
+                    <li role="presentation"><a href="#stzb">我的活动</a></li>
 <!--                    <li role="presentation"><a href="#ydzk">我的公开动态</a></li>-->
 <!--                    <li role="presentation"><a href="#shjy">我的私密动态</a></li>-->
                     <li role="presentation" class="active"><a href="#smyc">发布动态</a></li>

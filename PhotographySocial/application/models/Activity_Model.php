@@ -13,6 +13,7 @@ class Activity_Model extends CI_Model {
     public $time = 'time';
     public $body = 'body';
     private $sql_savePost = 'insert into activity(name, sponsor, phone, time, content) VALUES(?,?,?,?,?)';
+    private $sql_getActivity = 'select * from activity where sponsor = ?';
 
     public function __construct() {
         $this->load->database();
@@ -23,6 +24,12 @@ class Activity_Model extends CI_Model {
 //        $post = array($data[$this->body], $_SESSION[$this->userId], $data[$this->phone], $data[$this->time], $data[$this->content]);
         $post = array($data[$this->head], '2', $data[$this->phone], $data[$this->time], $data[$this->body]);
         $result = $this->db->query($this->sql_savePost, $post);
+        return $result;
+    }
+
+    // 获取当前用户所有活动
+    public function getActivity(){
+        $result = $this->db->query($this->sql_getActivity, '2')->result_array();
         return $result;
     }
 }

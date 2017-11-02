@@ -6,6 +6,9 @@
 </head>
 
 <body>
-    <form action="" method="post" enctype="multipart/form-data"></form>
+    <form action="<?php echo site_url('user/upload')?>" method="post" enctype="multipart/form-data">
+        <input type="file" name="pic" />
+        <input type="submit" value="submit">
+    </form>
 </body>
 </html>

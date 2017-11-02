@@ -27,7 +27,9 @@ class Activity extends CI_Controller {
     }
 
     public function showAllActivity(){
-        echo 'showAllActivity';
-        $this->load->view('activity/activity');
+        $post = $this->Activity_Model->getActivity();
+//        $userInfo = array('userInfo'=>$_SESSION);
+//        $this->load->view("template/header",$userInfo);
+        $this->load->view("activity/activity", array('post'=>$post));
     }
 }
