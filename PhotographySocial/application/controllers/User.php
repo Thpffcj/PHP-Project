@@ -12,18 +12,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('User_Model');
         $this->load->helper('url_helper');
-    }
-
-    public function index(){
-
-//        echo 'User---index';
-//        $this->load->view("user/user_index");
-        $this->load->model('User_Model');
-        $list = $this->User_Model->getAll();
-
-        $this->load->view('user/index', array(
-            'list'=>$list
-        ));
+        $this->load->library('session');
     }
 
     public function showLogin(){
@@ -47,12 +36,14 @@ class User extends CI_Controller {
         $result = $db->checkUser($data);
         if ($result) {
             $this->load->helper('url');
-            session_start();
-//            $_SESSION['userid'] = $result['userid'];
-            $_SESSION['username'] = $result['username'];
+//            session_start();
+//            $_SESSION['userId'] = $result['id'];
+//            $_SESSION['username'] = $result['username'];
+            $this->session->set_userdata('userId', $result['id']);
+            $this->session->set_userdata('username', $result['username']);
 //            $_SESSION['up'] = $result['up'];
 //            $_SESSION['down'] = $result['down'];
-              redirect("/activity/showDynamicList");
+              redirect("/activity/showAllActivity");
             //获取展示的数据
         } else {
             $this->load->view('user/login');

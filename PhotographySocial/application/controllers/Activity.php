@@ -11,25 +11,27 @@ class Activity extends CI_Controller {
         parent::__construct();
         $this->load->model('Activity_Model');
         $this->load->helper('url_helper');
+        $this->load->library('session');
     }
 
     // 发布新活动页面
     public function showNewActivity(){
-//        $this->load->view("template/header", array('userInfo'=>$_SESSION));
+        $this->load->view("common/header", array('userInfo'=>$_SESSION));
         $this->load->view('activity/new_activity');
     }
 
     // 保存新活动
     public function saveActivity(){
+//        var_dump($_POST);
         $result = $this->Activity_Model->saveActivity($_POST);
-//        $this->load->view('activity/activity');
+        $this->showAllActivity();
         return $result;
     }
 
     public function showAllActivity(){
         $post = $this->Activity_Model->getActivity();
-//        $userInfo = array('userInfo'=>$_SESSION);
-//        $this->load->view("template/header",$userInfo);
+        $userInfo = array('userInfo'=>$_SESSION);
+        $this->load->view("common/header",$userInfo);
         $this->load->view("activity/activity", array('post'=>$post));
     }
 }

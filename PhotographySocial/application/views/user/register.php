@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="author" content="">
     <title>用户注册</title>
-    <link href="http://localhost/GoSports/static/css/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="http://localhost/GoSports/static/css/personal/personal.css" rel="stylesheet">
+    <link href="http://localhost/PhotographySocial/static/css/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="http://localhost/PhotographySocial/static/css/personal/personal.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="http://localhost/GoSports/index.php/user/showLogin">去登录</a></li>
+                <li><a href="http://localhost/PhotographySocial/index.php/user/showLogin">去登录</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
