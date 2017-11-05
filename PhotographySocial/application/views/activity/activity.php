@@ -2,13 +2,15 @@
             <div class="nav nav-pills nav-stacked" role="tablist">
                 <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
                     <li role="presentation" class="active"><a
-                                href="<?= base_url() . 'index.php/activity/getActivity' ?>">我的活动</a></li>
+                                href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
                     <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a>
                     </li>
-<!--                    <li role="presentation"><a href="--><?//= base_url() . 'index.php/post/getMyPublicPost' ?><!--">我的相册</a>-->
-<!--                    </li>-->
-<!--                    <li role="presentation"><a href="--><?//= base_url() . 'index.php/post/getMyPrivatePost' ?><!--">我的照片</a>-->
-<!--                    </li>-->
+                    <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
+                    </li>
+                    <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
+                    </li>
+                    <li role="presentation"><a href="<?= base_url() . 'index.php/post/getMyPrivatePost' ?>">我的照片</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -25,7 +27,7 @@
                                 echo '<div class="row">';
                                 echo '<div class="col-md-10">';
                                 echo '<h3><strong>' . $row['name'] . '</strong></h3>';
-                                echo '<p>' . 'By ' . '<a href="http://localhost/GoSports/index.php/activity/showAllActivity/' . $row['sponsor'] . '">' . $row['username'] . '</a> 联系方式:' .  $row['phone'] . ' 时间:'. $row['time'] . '</p>';
+                                echo '<p>' . 'By ' . '<a href="http://localhost/PhotographySocial/index.php/activity/showAllActivity/' . $row['sponsor'] . '">' . $row['username'] . '</a> 联系方式:' .  $row['phone'] . ' 时间:'. $row['time'] . '</p>';
                                 echo '<p>' . $row['content'] . '</p>';
                                 echo '</div>';
                                 echo '<div class="col-md-2">';

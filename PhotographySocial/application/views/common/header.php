@@ -30,7 +30,7 @@
                 <li><a href="<?= base_url() . 'index.php/personal/showPersonalData' ?>">个人主页</a></li>
                 <!--                <li><a href="--><?//= base_url() . 'index.php/post/getPost' ?><!--">大操场</a></li>-->
                 <!--                <li><a href="--><?//= base_url() . 'index.php/activity/getAll' ?><!--">比试比试？</a></li>-->
-                <!--                <li><a href="--><?//= base_url() . 'index.php/relationship/getFriends' ?><!--">朋友们</a></li>-->
+                                <li><a href="<?= base_url() . 'index.php/friend/getFriends' ?>">朋友们</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
