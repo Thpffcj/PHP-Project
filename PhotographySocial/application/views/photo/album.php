@@ -32,11 +32,6 @@
                         echo '</div>';
                         echo '<div class="col-md-2">';
                         echo '<img height="48" width="48" src="' . base_url() . 'static/image/image-01.jpg" style="float:left;">';
-//                                    if ($row['strange'] == 0){
-//                                        echo '<button type="button" id ="watchButton" onclick="unwatch(\''.$row['userid'].'\')" class="btn btn-default" style="margin:30px;float: left">取关</button>';
-//                                    }else{
-//                                        echo '<button type="button" id ="watchButton" onclick="watch(\''.$row['userid'].'\')" class="btn btn-default" style="margin:30px;float: left">关注</button>';
-//                                    }
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';

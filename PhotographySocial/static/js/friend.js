@@ -18,7 +18,7 @@ function watch(pid){
             button.innerHTML="已关注";
         }
     }
-    xmlhttp.open("GET",'http://localhost/GoSports/index.php/friend/watch/'+pid,true);
+    xmlhttp.open("GET",'http://localhost/PhotographySocial/index.php/friend/watch/'+pid,true);
     xmlhttp.send();
 }
 
@@ -42,6 +42,6 @@ function unwatch(pid){
             button.innerHTML="已取关";
         }
     }
-    xmlhttp.open("GET",'http://localhost/GoSports/index.php/friend/unwatch/'+pid,true);
+    xmlhttp.open("GET",'http://localhost/PhotographySocial/index.php/friend/unwatch/'+pid,true);
     xmlhttp.send();
 }

@@ -9,7 +9,9 @@
                     </li>
                     <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
                     </li>
-                    <li role="presentation"><a href="<?= base_url() . 'index.php/post/getMyPrivatePost' ?>">我的照片</a>
+                    <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showAllPhoto' ?>">我的照片</a>
+                    </li>
+                    <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
                     </li>
                 </ul>
             </div>

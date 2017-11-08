@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="Easy Life" content="">
     <meta name="description" content="">
@@ -27,7 +28,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="<?= base_url() . 'index.php/personal/showPersonalData' ?>">个人主页</a></li>
+                <li><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">个人主页</a></li>
                 <!--                <li><a href="--><?//= base_url() . 'index.php/post/getPost' ?><!--">大操场</a></li>-->
                 <!--                <li><a href="--><?//= base_url() . 'index.php/activity/getAll' ?><!--">比试比试？</a></li>-->
                                 <li><a href="<?= base_url() . 'index.php/friend/getFriends' ?>">朋友们</a></li>

@@ -21,26 +21,26 @@ class Friend_Model extends CI_Model {
 
     // 添加关注关系
     public function add($friendId){
-        $result = $this->db->query($this->sql_friend_add, array($_SESSION[$this->userId], $friendId));
+        $result = $this->db->query($this->sql_friend_add, array($this->session->userdata('userId'), $friendId));
         return $result;
     }
 
     // 取消关注关系
     public function remove($friendId){
-        $result = $this->db->query($this->sql_friend_remove,array($_SESSION[$this->userId],$friendId));
+        $result = $this->db->query($this->sql_friend_remove,array($this->session->userdata('userId'),$friendId));
         return $result;
     }
 
     // 获得所有朋友
     public function getFriends(){
-        $result = $this->db->query($this->sql_get_friends,array($_SESSION[$this->userId]));
+        $result = $this->db->query($this->sql_get_friends,array($this->session->userdata('userId')));
         $friends = $result->result_array();
         return $friends;
     }
 
     // 获得所有用户
     public function getStrangers(){
-        $result = $this->db->query($this->sql_get_strangers,array($_SESSION[$this->userId],$_SESSION[$this->userId]));
+        $result = $this->db->query($this->sql_get_strangers,array($this->session->userdata('userId'),$this->session->userdata('userId')));
         $strangers = $result->result_array();
         return $strangers;
     }

@@ -11,10 +11,13 @@ class Friend extends CI_Controller {
         parent::__construct();
         $this->load->model('Friend_Model');
         $this->load->helper('url_helper');
+        $this->load->library('session');
+        header("Access-Control-Allow-Origin: * ");
     }
 
     // 关注好友
     public function watch($friend){
+//        header("Access-Control-Allow-Origin: * ");
         $result = $this->Friend_Model->add($friend);
         return $result;
     }
