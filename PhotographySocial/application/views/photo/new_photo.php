@@ -1,9 +1,5 @@
 <div class="nav nav-pills nav-stacked" role="tablist">
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation" class="active"><a
-                    href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a>
-        </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
         </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
@@ -45,8 +41,10 @@
                             </div>
                         </div>
                         <div class="form-group form-group-lg">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <input type="file" name="pic">
+                            <label class="col-sm-2 control-label">上传照片</label>
+                            <div class="col-xs-4">
+                                <input class="form-control" name = "pic" type="file" id="pic" >
+                                <br/>
                                 <button type="button" class="btn btn-primary"
                                         onclick="validate()">
                                     保 存

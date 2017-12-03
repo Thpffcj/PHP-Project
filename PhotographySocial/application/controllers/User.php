@@ -36,9 +36,6 @@ class User extends CI_Controller {
         $result = $db->checkUser($data);
         if ($result) {
             $this->load->helper('url');
-//            session_start();
-//            $_SESSION['userId'] = $result['id'];
-//            $_SESSION['username'] = $result['username'];
             $this->session->set_userdata('userId', $result['id']);
             $this->session->set_userdata('username', $result['username']);
 //            $_SESSION['up'] = $result['up'];
@@ -50,7 +47,9 @@ class User extends CI_Controller {
         }
     }
 
-
+    /**
+     * 用户注册
+     */
     public function register(){
         $db = $this->User_Model;
 
@@ -65,6 +64,42 @@ class User extends CI_Controller {
             $this->load->view('user/register_fail');
         }
     }
+
+    /**
+     * 账户信息设置
+     */
+    public function showDetail() {
+        $userId = $this->session->userdata('userid');
+        $detail = $this->User_Model->getInfo($userId);
+        if (count($detail) == 0){
+            $detail['username'] = '';
+            $detail['birthday'] = '';
+            $detail['phone'] = '';
+            $detail['avatar'] = '';
+        }
+        $data = array('basic'=>$detail);
+        $userInfo = array('userInfo'=>$_SESSION);
+        $this->load->view("common/header",$userInfo);
+        $this->load->view("user/detail", $data);
+    }
+
+    /**
+     * 账户信息更新
+     */
+    public function updateDetail(){
+        $db = $this->User_Model;
+        $basicInfo = array($db->userId=>$this->session->userdata('userid'), $db->username=>$_POST[$db->username],
+            $db->birthday=>$_POST[$db->birthday], $db->phone=>$_POST[$db->phone]);
+        $result = $db->updateInfo($basicInfo);
+        if ($result){
+            $this->showDetail();
+        }else{
+            $userInfo = array('userInfo'=>$_SESSION);
+            $this->load->view("common/header",$userInfo);
+            $this->load->view("personal/modify_basic_info");
+        }
+    }
+
 
     public function showUsers(){
 

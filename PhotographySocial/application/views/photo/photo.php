@@ -1,15 +1,13 @@
 
 <div class="nav nav-pills nav-stacked" role="tablist">
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation" class="active"><a
-                href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a>
-        </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
         </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/post/getMyPrivatePost' ?>">我的照片</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showAllPhoto' ?>">我的照片</a>
+        </li>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
         </li>
     </ul>
 </div>
@@ -19,9 +17,8 @@
         <div class="content">
             <div>
                 <!-- A wrapper for all the blog posts -->
-                <?php
-                if (count($post) != 0)
-                    foreach($post as $row):?>
+                <?php if (count($post) != 0):?>
+                    <?php foreach($post as $row):?>
                     <ul class="polaroids">
                         <li><a href="#" title="Roelan"><img src="../../static/image/image-01.jpg" alt="Roeland!"></a></li>
                         <li><a href="#" title="Discus"><img src="../../static/image/image-02.jpg" alt="Discussion"></a></li>
@@ -37,16 +34,16 @@
                         <li><a href="#" title="Sneake"><img src="../../static/image/image-02.jpg" alt="Sneakers & Stilettos"></a></li>
                     </ul>
                     <?php endforeach;?>
-                else {
-                    echo '<div class="panel panel-info">';
-                    echo '<div class="panel-body" style="text-align: center">';
-                    echo '<div class="text-info">';
-                    echo '<strong><h3>还没有照片哦</h3></strong>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
+                <?php endif;?>
+                <?php if (count($post) == 0):?>
+                <div class="panel panel-info">
+                    <div class="panel-body" style="text-align: center">
+                        <div class="text-info">
+                            <strong><h3>还没有照片哦</h3></strong>
+                        </div>
+                    </div>
+                </div>
+                <?php endif;?>
             </div>
         </div>
     </div>
@@ -54,6 +51,7 @@
 </div>
 
 </div><!-- /.container -->
+<link rel="stylesheet" type="text/css" href="http://localhost/PhotographySocial/static/css/index/style.css">
 <script src="<?= base_url() . 'static/js/album.js' ?>"></script>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="<?= base_url() . 'static/js/bootstrap.min.js' ?>"></script>

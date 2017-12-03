@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="http://localhost/PhotographySocial/static/css/login/style.css">
     <link rel="stylesheet" href="http://localhost/PhotographySocial/static/css/login/login.css">
 
-
 </head>
 
 <body>
