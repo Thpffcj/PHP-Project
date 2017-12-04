@@ -1,7 +1,7 @@
 <div class="nav nav-pills nav-stacked" role="tablist">
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a></li>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
+        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a></li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">加入活动</a></li>
     </ul>
 </div>

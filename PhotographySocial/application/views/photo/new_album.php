@@ -2,9 +2,9 @@
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
+        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showAllPhoto' ?>">我的照片</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showPhoto' ?>">我的照片</a>
         </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
         </li>

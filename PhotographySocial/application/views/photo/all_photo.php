@@ -1,15 +1,5 @@
 
 <div class="nav nav-pills nav-stacked" role="tablist">
-    <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
-        </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
-        </li>
-        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/photo/showPhoto' ?>">我的照片</a>
-        </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
-        </li>
-    </ul>
 </div>
 </div>
 <div class="g-mn1">
@@ -17,16 +7,14 @@
         <div class="content">
             <div>
                 <!-- A wrapper for all the blog posts -->
-                <?php if (count($post) != 0): ?>
-                    <?php foreach ($post as $row): ?>
+                <?php if (count($post) != 0):?>
+                    <?php foreach($post as $row):?>
                         <ul class="polaroids">
-                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>"></a>
-                            </li>
+                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>"></a></li>
                         </ul>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
-                <?php if (count($post) == 0): ?>
+                    <?php endforeach;?>
+                <?php endif;?>
+                <?php if (count($post) == 0):?>
                     <div class="panel panel-info">
                         <div class="panel-body" style="text-align: center">
                             <div class="text-info">
@@ -34,8 +22,7 @@
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-
+                <?php endif;?>
             </div>
         </div>
     </div>

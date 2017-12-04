@@ -7,10 +7,12 @@
  */
 class User_Model extends CI_Model {
 
-    public $c_username = 'username';
-    public $c_password = 'password';
+    public $userId = 'userId';
+    public $username = 'username';
+    public $password = 'password';
     public $birthday = 'birthday';
     public $phone = 'phone';
+    public $avatar = 'avatar';
     private $sql_user_get = 'select * from user where username=? and password=?';
     private $sql_user_check_exist = 'select * from user where username=?';
     private $sql_user_register = 'insert into user(username,password)values(?,?)';
@@ -18,7 +20,7 @@ class User_Model extends CI_Model {
     private $sql_user_up = 'update user set up=? where userid=?';
     private $sql_user_down = 'update user set down=? where userid=?';
 
-    private $sql_basic_update = "update basicinfo set birthday=?,sex=?,height=?,weight=?,breath=?";
+    private $sql_user_detail_update = "update user set username=?, password=?, birthday=?, phone=?, avatar=? where id=?";
     private $sql_basic_insert = "insert into basicinfo(userid,sex,birthday,height,weight,breath) values(?,?,?,?,?,?)";
 
     public function __construct() {
@@ -35,8 +37,8 @@ class User_Model extends CI_Model {
 
     //登录
     public function checkUser($data) {
-        $user = $data[$this->c_username];
-        $pass = $data[$this->c_password];
+        $user = $data[$this->username];
+        $pass = $data[$this->password];
         $result = $this->db->query($this->sql_user_get, array($user, $pass));
         if ($result->num_rows() > 0) {
             $row =  $result->row_array();
@@ -49,8 +51,8 @@ class User_Model extends CI_Model {
 
     // 注册用户
     public function registerUser($data){
-        $user = $data[$this->c_username];
-        $pass = $data[$this->c_password];
+        $user = $data[$this->username];
+        $pass = $data[$this->password];
         $exist = $this->db->query($this->sql_user_check_exist,array($user));
         if ($exist->num_rows() == 0) {
             $result1 = $this->db->query($this->sql_user_register,array($user,$pass));
@@ -70,17 +72,18 @@ class User_Model extends CI_Model {
         return $result;
     }
 
+    // 获取用户账户信息
+    public function getUserInfo($userId){
+        $userInfo = $this->db->query($this->sql_user_detail,array($userId))->row_array();
+        unset($userInfo['password']);
+        return $userInfo;
+    }
+
+    // 更新用户账户信息
     public function updateInfo($basicInfo){
-        $basic = $this->getBasicInfo($basicInfo[$this->userId]);
-        if (count($basic)){
-            //update
-            $result = $this->db->query($this->sql_basic_update,
-                array($basicInfo[$this->birthday],$basicInfo[$this->sex],$basicInfo[$this->height],$basicInfo[$this->weight],$basicInfo[$this->breath]));
-        }else {
-            //insert
-            $result = $this->db->query($this->sql_basic_insert,
-                array($basicInfo[$this->userId],$basicInfo[$this->sex],$basicInfo[$this->birthday],$basicInfo[$this->height],$basicInfo[$this->weight],$basicInfo[$this->breath]));
-        }
+        $result = $this->db->query($this->sql_user_detail_update,
+                array($basicInfo[$this->username], $basicInfo[$this->password], $basicInfo[$this->birthday],
+                    $basicInfo[$this->phone], $basicInfo[$this->avatar], $basicInfo[$this->userId]));
         return $result;
     }
 

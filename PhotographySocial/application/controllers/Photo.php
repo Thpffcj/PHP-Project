@@ -14,6 +14,16 @@ class Photo extends CI_Controller {
         $this->load->library('session');
     }
 
+    /**
+     *  展示所有图片
+     */
+    public function showAllPhoto() {
+        $post = $this->Photo_Model->getAllPhoto();
+        $userInfo = array('userInfo'=>$_SESSION);
+        $this->load->view("common/header",$userInfo);
+        $this->load->view("photo/all_photo", array('post'=>$post));
+    }
+
     // 新建照片页面
     public function showNewPhoto(){
         $post = $this->Photo_Model->getAllAlbum();
@@ -37,15 +47,17 @@ class Photo extends CI_Controller {
 
         // 获取上传之后的数据
         $data = $this->upload->data();
+//        $name = "../../uploads/".$data['file_name'];
         $name = $data['file_name'];
 
         $result = $this->Photo_Model->savePhoto($_POST, $name);
-        return $result;
+        $this->showPhoto();
     }
 
     // 展示我的所有照片
-    public function showAllPhoto(){
+    public function showPhoto(){
         $post = $this->Photo_Model->getPhoto();
+//        var_dump($post);
         $userInfo = array('userInfo'=>$_SESSION);
         $this->load->view("common/header",$userInfo);
         $this->load->view("photo/photo", array('post'=>$post));

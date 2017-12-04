@@ -13,6 +13,7 @@ class Friend_Model extends CI_Model {
     private $sql_friend_remove = 'delete from friend where user_id = ? and following_id = ?';
     private $sql_get_friends = 'select * from user where id in (select following_id from friend where user_id = ?)';
     private $sql_get_strangers = 'select * from user where id != ? and id not in(select following_id from friend where user_id = ?)';
+    private $sql_getPhoto_path = 'select * from photo where user_id = ?';
 
     public function __construct() {
         $this->load->database();
@@ -43,5 +44,11 @@ class Friend_Model extends CI_Model {
         $result = $this->db->query($this->sql_get_strangers,array($this->session->userdata('userId'),$this->session->userdata('userId')));
         $strangers = $result->result_array();
         return $strangers;
+    }
+
+    // 获取查看用户所有照片
+    public function getOthersPhoto($otherId){
+        $result = $this->db->query($this->sql_getPhoto_path, $otherId)->result_array();
+        return $result;
     }
 }

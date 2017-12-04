@@ -6,53 +6,64 @@
                 </ul>
             </div>
         </div>
-        <div class="g-mn1">
-            <div class="g-mn1c">
-                <div class="content">
-                    <div>
-                        <?php
+            <div class="g-mn1">
+                <div class="g-mn1c">
+                    <div class="content">
+                        <div>
+                            <?php
                             $buttonHTML_part1 = '<button type="button" style="margin-top: 15px;margin-right: 40px" ';
-                            if ($isFriend){
+                            if ($isFriend) {
                                 $buttonHTML_part2 = 'onclick="unwatch(\'';
                                 $buttonHTML_part3 = '\')" class="btn btn-default">取关</button>';
 
-                            }else{
+                            } else {
                                 $buttonHTML_part2 = 'onclick="watch(\'';
                                 $buttonHTML_part3 = '\')" class="btn btn-success">关注</button>';
                             }
-                            if (count($friends) != 0){
-                                foreach ($friends as $row){
-                                    echo '<div class="panel panel-info col-md-5" style="float: left;margin: 20px">';
-                                    echo '<div class="panel-body">';
-                                    echo '<div style="float: left">';
-                                    echo '<img height="48" width="48" src="'.base_url().'static/image/image-02.jpg">';
-                                    echo '</div>';
-                                    echo '<div style="float: left">';
-                                    echo '<p class="text-info"><h4><a href="'.base_url().'index.php/post/getOthersPost/'.$row['id'].'">'.$row['username'].'</a></h4></p>';
-                                    echo '<p class="text-success" style="float: left">赞<span class="badge">'.$row['up'].'</span></p>';
-                                    echo '<p class="text-warning" style="float: left">踩<span class="badge">'.$row['down'].'</span></p>';
-                                    echo '</div>';
-                                    echo '<div style="float: right">';
-                                    echo $buttonHTML_part1.'id="'.$row['id'].'" '.$buttonHTML_part2.$row['id'].$buttonHTML_part3;
-                                    echo '</div>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                }
-                            }else{
-                                echo '<div class="panel panel-info">';
-                                echo '<div class="panel-body" style="text-align: center">';
-                                echo '<div class="text-info">';
-                                echo '<strong><h3>还没有关注任何人哦</h3></strong>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
-                            }
-                        ?>
+                            ?>
+
+                            <?php if (count($friends) != 0): ?>
+                                <?php foreach ($friends as $row): ?>
+                                    <div class="panel panel-info col-md-5" style="float: left;margin: 20px">
+                                        <div class="panel-body">
+                                            <div style="float: left">
+                                                <img height="48" width="48"
+                                                     src="<?= base_url() . 'static/image/image-02.jpg' ?>">
+                                            </div>
+                                            <div style="float: left">
+                                                <?php
+                                                    echo '<p class="text-info"><h4><a href="'.base_url().'index.php/friend/getOthersDynamic/'.$row['id'].'">'.$row['username'].'</a></h4></p>';
+                                                ?>
+                                                <p class="text-success" style="float: left">赞<span
+                                                            class="badge"><?= $row['up'] ?></span></p>
+                                                <p class="text-warning" style="float: left">踩<span
+                                                            class="badge"><?= $row['down'] ?></span></p>
+                                            </div>
+                                            <div style="float: right">
+                                                <?php
+                                                    echo $buttonHTML_part1.'id="'.$row['id'].'" '.$buttonHTML_part2.$row['id'].$buttonHTML_part3;
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                            <?php if (count($friends) == 0): ?>
+                                <div class="panel panel-info">
+                                    <div class="panel-body" style="text-align: center">
+                                        <div class="text-info">
+                                            <strong><h3>还没有关注任何人哦</h3></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            </div>
 
 </div><!-- /.container -->
 

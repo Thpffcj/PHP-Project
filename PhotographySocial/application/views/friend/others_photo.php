@@ -1,13 +1,9 @@
 
 <div class="nav nav-pills nav-stacked" role="tablist">
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">我的相册</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">他的照片</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
-        </li>
-        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/photo/showPhoto' ?>">我的照片</a>
-        </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">他的活动</a>
         </li>
     </ul>
 </div>
@@ -20,7 +16,7 @@
                 <?php if (count($post) != 0): ?>
                     <?php foreach ($post as $row): ?>
                         <ul class="polaroids">
-                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>"></a>
+                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/5a240317e1582.jpg' ?>"></a>
                             </li>
                         </ul>
                     <?php endforeach; ?>
@@ -30,7 +26,7 @@
                     <div class="panel panel-info">
                         <div class="panel-body" style="text-align: center">
                             <div class="text-info">
-                                <strong><h3>还没有照片哦</h3></strong>
+                                <strong><h3>他还没有照片哦</h3></strong>
                             </div>
                         </div>
                     </div>

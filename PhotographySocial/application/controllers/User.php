@@ -29,18 +29,19 @@ class User extends CI_Controller {
     {
         $db = $this->User_Model;
 
-        $user = $_POST[$db->c_username];
-        $pass = $_POST[$db->c_password];
-        $data = array($db->c_username=>$user,$db->c_password=>$pass);
+        $user = $_POST[$db->username];
+        $pass = $_POST[$db->password];
+        $data = array($db->username=>$user,$db->password=>$pass);
 
         $result = $db->checkUser($data);
         if ($result) {
             $this->load->helper('url');
             $this->session->set_userdata('userId', $result['id']);
             $this->session->set_userdata('username', $result['username']);
+            $this->session->set_userdata('avatar', $result['avatar']);
 //            $_SESSION['up'] = $result['up'];
 //            $_SESSION['down'] = $result['down'];
-              redirect("/activity/showAllActivity");
+              redirect("/photo/showAllPhoto");
             //获取展示的数据
         } else {
             $this->load->view('user/login');
@@ -69,7 +70,7 @@ class User extends CI_Controller {
      * 账户信息设置
      */
     public function showDetail() {
-        $userId = $this->session->userdata('userid');
+        $userId = $this->session->userdata('userId');
         $detail = $this->User_Model->getInfo($userId);
         if (count($detail) == 0){
             $detail['username'] = '';
@@ -86,20 +87,38 @@ class User extends CI_Controller {
     /**
      * 账户信息更新
      */
-    public function updateDetail(){
+    public function updateDetail()
+    {
         $db = $this->User_Model;
-        $basicInfo = array($db->userId=>$this->session->userdata('userid'), $db->username=>$_POST[$db->username],
-            $db->birthday=>$_POST[$db->birthday], $db->phone=>$_POST[$db->phone]);
-        $result = $db->updateInfo($basicInfo);
-        if ($result){
-            $this->showDetail();
-        }else{
-            $userInfo = array('userInfo'=>$_SESSION);
-            $this->load->view("common/header",$userInfo);
-            $this->load->view("personal/modify_basic_info");
-        }
-    }
+//        var_dump('hello');
 
+        // 上传目录需要手工创建
+        $config['upload_path'] = './uploads/';
+        // 允许扩展名
+        $config['allowed_types'] = 'gif|png|jpg|jpeg';
+        // 生成新文件名
+        $config['file_name'] = uniqid();
+
+        // 装载文件上传类
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('pic');
+
+        // 获取上传之后的数据
+        $data = $this->upload->data();
+        $name = $data['file_name'];
+        if($data['file_size'] == null) {
+            $name = $this->session->userdata('avatar');
+        }
+
+//        var_dump($name);
+        $basicInfo = array($db->userId => $this->session->userdata('userId'), $db->username => $_POST[$db->username],
+            $db->password => $_POST[$db->password], $db->birthday => $_POST[$db->birthday],
+            $db->phone => $_POST[$db->phone], $db->avatar => $name);
+
+//        var_dump($basicInfo);
+        $result = $db->updateInfo($basicInfo);
+        $this->showDetail();
+    }
 
     public function showUsers(){
 

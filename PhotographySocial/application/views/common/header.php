@@ -28,6 +28,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="<?= base_url() . 'index.php/Photo/showAllPhoto' ?>">首页</a></li>
                 <li><a href="<?= base_url() . 'index.php/User/showDetail' ?>">个人信息</a></li>
                 <li><a href="<?= base_url() . 'index.php/Album/showAllAlbum' ?>">我的照片</a></li>
                 <li><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">活动广场</a></li>
@@ -49,7 +50,7 @@
     <div class="g-bd1 f-cb">
         <div class="g-sd1" style="margin-left: 5px;">
             <article>
-                <span class="u-img"><a href="#"><img src="<?= base_url() . 'static/image/image-01.jpg' ?>" alt=""
+                <span class="u-img"><a href="#"><img src="<?= base_url() . 'uploads/' . $userInfo['avatar'] ?>" alt=""
                                                      style="margin: 5px;"/></a></span>
                 <br>
                 <div style="padding-left: 15px">

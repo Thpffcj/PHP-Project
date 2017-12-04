@@ -45,4 +45,14 @@ class Friend extends CI_Controller {
         $this->load->view('common/header',$userInfo);
         $this->load->view('friend/friend',$data);
     }
+
+    // 查看其他用户的动态
+    public function getOthersDynamic($otherId) {
+        $post = $this->Friend_Model->getOthersPhoto($otherId);
+//        var_dump($post);
+        $this->load->model('User_Model');
+        $userInfo = $this->User_Model->getUserInfo($otherId);
+        $this->load->view("common/header", array('userInfo'=>$userInfo));
+        $this->load->view("friend/others_photo", array('post'=>$post));
+    }
 }

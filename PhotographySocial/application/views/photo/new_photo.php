@@ -4,9 +4,9 @@
         </li>
         <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">新建相册</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showAllPhoto' ?>">我的照片</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showPhoto' ?>">我的照片</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
+        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/photo/showNewPhoto' ?>">上传照片</a>
         </li>
     </ul>
 </div>
@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">照片名称</label>
                             <div class="col-xs-10">
-                                <input class="form-control" name="name" id="name" type="text">
+                                <input class="form-control" name="photo_name" id="photo_name" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,13 +67,8 @@
 
 <script type="application/javascript">
 
-//    var album_name = document.getElementById('album_name').value;
-//    alert(album_name);
-
     function validate() {
         var form = document.getElementById("postForm");
-        var name = "adfasdfasdf";
-        var album_name = document.getElementById('album_name').value;
         form.action = "<?= base_url() . 'index.php/photo/savePhoto'?>";
         form.submit();
     }

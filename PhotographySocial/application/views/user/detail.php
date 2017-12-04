@@ -7,29 +7,35 @@
                 <div class="panel-title">修改个人数据</div>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" id="basicForm" method="post">
+                <form class="form-horizontal" role="form" id="basicForm" method="post" enctype="multipart/form-data">
                     <div class="form-group form-group-lg">
                         <label class="col-sm-2 control-label" for="formGroupInputLarge">用户名</label>
                         <div class="col-xs-4">
-                            <input class="form-control" name = "username" type="text" id="username" placeholder="<?=$basic['username']?>" value="<?=$basic['username']?>">
+                            <input class="form-control" name = "username" type="text" id="username" value="<?=$basic['username']?>">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                        <label class="col-sm-2 control-label" for="formGroupInputLarge">密码</label>
+                        <div class="col-xs-4">
+                            <input class="form-control" name = "password" type="text" id="password" >
                         </div>
                     </div>
                     <div class="form-group form-group-lg">
                         <label class="col-sm-2 control-label" for="formGroupInputLarge">生日</label>
                         <div class="col-xs-4">
-                            <input class="form-control" name = "birthday" type="text" id="birthday" placeholder="<?=$basic['birthday']?>" value="<?=$basic['birthday']?>">
+                            <input class="form-control" name = "birthday" type="text" id="birthday" value="<?=$basic['birthday']?>">
                         </div>
                     </div>
                     <div class="form-group form-group-lg">
                         <label class="col-sm-2 control-label" for="formGroupInputLarge">联系方式</label>
                         <div class="col-xs-4">
-                            <input class="form-control" name = "phone" type="text" id="phone" placeholder="<?=$basic['phone']?>" value="<?=$basic['phone']?>">
+                            <input class="form-control" name = "phone" type="text" id="phone" value="<?=$basic['phone']?>">
                         </div>
                     </div>
                     <div class="form-group form-group-lg">
                         <label class="col-sm-2 control-label">上传头像</label>
                         <div class="col-xs-4">
-                            <input class="form-control" name = "file" type="file" id="file" value="<?=$basic['avatar']?>">
+                            <input class="form-control" name = "pic" type="file" id="pic">
                         </div>
                     </div>
                     <div class="form-group form-group-lg">
@@ -53,7 +59,7 @@
         var username = document.getElementById('username');
         var birthday = document.getElementById('birthday');
         var phone = document.getElementById('phone');
-        if (birthday.value == "" || weight.value == "" || height.value == ""){
+        if (username.value == "" || birthday.value == "" || phone.value == ""){
             alert("请完整填写");
         }else {
             var form = document.getElementById('basicForm');

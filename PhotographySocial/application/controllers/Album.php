@@ -23,7 +23,7 @@ class Album extends CI_Controller {
     // 保存新相册
     public function saveAlbum(){
         $result = $this->Album_Model->saveAlbum($_POST);
-        return $result;
+        $this->showAllAlbum();
     }
 
     // 展示我的所有相册
