@@ -25,11 +25,11 @@
                         echo '<div class="row">';
                         echo '<div class="col-md-10">';
                         echo '<h3><strong>' . $row['album_name'] . '</strong></h3>';
-                        echo '<p>' . 'By ' . '<a href="http://localhost/PhotographySocial/index.php/album/showAllAlbum/' . $row['user_id'] . '">' . $row['user_id'] .'</a>' . '</p>';
+                        echo '<p>' . 'By ' . '<a href="http://localhost/PhotographySocial/index.php/album/showAllAlbum/' . $row['user_id'] . '">' . $userInfo['username'] .'</a>' . '</p>';
                         echo '<p>' . $row['description'] . '</p>';
                         echo '</div>';
                         echo '<div class="col-md-2">';
-                        echo '<img height="48" width="48" src="' . base_url() . 'static/image/image-01.jpg" style="float:left;">';
+                        echo '<img height="48" width="48" src="' . base_url() . 'uploads/' . $userInfo['avatar'] . '" style="float:left;">';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';

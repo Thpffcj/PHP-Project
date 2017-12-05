@@ -56,14 +56,14 @@
                 <div style="padding-left: 15px">
                     <p class="text-info "><strong><?= $userInfo['username'] ?></strong></p>
                     <p class="text-success"><strong>摄影达人</strong></p>
-                    <!--                    --><?php
-                    //                    if ($_SESSION['userid'] == $userInfo['userid']) {
-                    //                        echo '<p class="text-warning">赞<span id="up" class="badge">' . $userInfo['up'] . '</span></p>';
-                    //                        echo '<p class="text-success">踩<span id="down" class="badge">' . $userInfo['down'] . '</span></p>';
-                    //                    } else {
-                    //                        echo '<p class="text-warning"><a onclick="up(' . $userInfo['userid'] . ')">赞</a><span id="up" class="badge">' . $userInfo['up'] . '</span></p>';
-                    //                        echo '<p class="text-success"><a onclick="down(' . $userInfo['userid'] . ')">踩</a><span id="down" class="badge">' . $userInfo['down'] . '</span></p>';
-                    //                    }
-                    //                    ?>
+                    <?php
+                    if ($_SESSION['userId'] == $userInfo['userId']) {
+                        echo '<p class="text-warning">赞 <span id="up" class="badge">' . $userInfo['up'] . '</span></p>';
+                        echo '<p class="text-success">踩 <span id="down" class="badge">' . $userInfo['down'] . '</span></p>';
+                    } else {
+                        echo '<p class="text-warning"><a onclick="up(' . $userInfo['userId'] . ')">赞 </a><span id="up" class="badge">' . $userInfo['up'] . '</span></p>';
+                        echo '<p class="text-success"><a onclick="down(' . $userInfo['userId'] . ')">踩 </a><span id="down" class="badge">' . $userInfo['down'] . '</span></p>';
+                    }
+                    ?>
                 </div>
             </article>

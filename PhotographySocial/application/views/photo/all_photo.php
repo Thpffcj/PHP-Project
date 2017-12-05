@@ -10,7 +10,9 @@
                 <?php if (count($post) != 0):?>
                     <?php foreach($post as $row):?>
                         <ul class="polaroids">
-                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>"></a></li>
+                            <li><a href="#" title="<?= $row['photo_name'] . ' 作者:' . $row['username']?> ">
+                                    <img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>">
+                                </a></li>
                         </ul>
                     <?php endforeach;?>
                 <?php endif;?>

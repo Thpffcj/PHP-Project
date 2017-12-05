@@ -14,6 +14,7 @@ class Friend_Model extends CI_Model {
     private $sql_get_friends = 'select * from user where id in (select following_id from friend where user_id = ?)';
     private $sql_get_strangers = 'select * from user where id != ? and id not in(select following_id from friend where user_id = ?)';
     private $sql_getPhoto_path = 'select * from photo where user_id = ?';
+    private $sql_getActivity = 'select * from activity where sponsor = ?';
 
     public function __construct() {
         $this->load->database();
@@ -49,6 +50,12 @@ class Friend_Model extends CI_Model {
     // 获取查看用户所有照片
     public function getOthersPhoto($otherId){
         $result = $this->db->query($this->sql_getPhoto_path, $otherId)->result_array();
+        return $result;
+    }
+
+    // 获取查看用户所有活动
+    public function getOthersActivity($otherId){
+        $result = $this->db->query($this->sql_getActivity, $otherId)->result_array();
         return $result;
     }
 }

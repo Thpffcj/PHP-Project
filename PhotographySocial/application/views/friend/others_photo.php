@@ -1,9 +1,9 @@
 
 <div class="nav nav-pills nav-stacked" role="tablist">
     <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showAllAlbum' ?>">他的照片</a>
+        <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/friend/getOthersPhoto/' . $userInfo['id'] ?>">他的照片</a>
         </li>
-        <li role="presentation"><a href="<?= base_url() . 'index.php/album/showNewAlbum' ?>">他的活动</a>
+        <li role="presentation"><a href="<?= base_url() . 'index.php/friend/getOthersActivity/' . $userInfo['id']?>">他的活动</a>
         </li>
     </ul>
 </div>
@@ -16,7 +16,7 @@
                 <?php if (count($post) != 0): ?>
                     <?php foreach ($post as $row): ?>
                         <ul class="polaroids">
-                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/5a240317e1582.jpg' ?>"></a>
+                            <li><a href="#" title="<?= $row['photo_name'] ?>"><img src="<?= base_url() . 'uploads/' . $row['photo_path'] ?>"></a>
                             </li>
                         </ul>
                     <?php endforeach; ?>

@@ -28,11 +28,11 @@
                                         <div class="panel-body">
                                             <div style="float: left">
                                                 <img height="48" width="48"
-                                                     src="<?= base_url() . 'static/image/image-02.jpg' ?>">
+                                                     src="<?= base_url() . 'uploads/' . $row['avatar'] ?>">
                                             </div>
                                             <div style="float: left">
                                                 <?php
-                                                    echo '<p class="text-info"><h4><a href="'.base_url().'index.php/friend/getOthersDynamic/'.$row['id'].'">'.$row['username'].'</a></h4></p>';
+                                                    echo '<p class="text-info"><h4><a href="'.base_url().'index.php/friend/getOthersPhoto/'.$row['id'].'">'.$row['username'].'</a></h4></p>';
                                                 ?>
                                                 <p class="text-success" style="float: left">赞<span
                                                             class="badge"><?= $row['up'] ?></span></p>

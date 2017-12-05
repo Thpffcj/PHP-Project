@@ -17,7 +17,7 @@
                     <div class="form-group form-group-lg">
                         <label class="col-sm-2 control-label" for="formGroupInputLarge">密码</label>
                         <div class="col-xs-4">
-                            <input class="form-control" name = "password" type="text" id="password" >
+                            <input class="form-control" name = "password" type="text" id="password" value="<?=$basic['password']?>">
                         </div>
                     </div>
                     <div class="form-group form-group-lg">

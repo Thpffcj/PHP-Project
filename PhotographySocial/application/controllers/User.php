@@ -39,9 +39,9 @@ class User extends CI_Controller {
             $this->session->set_userdata('userId', $result['id']);
             $this->session->set_userdata('username', $result['username']);
             $this->session->set_userdata('avatar', $result['avatar']);
-//            $_SESSION['up'] = $result['up'];
-//            $_SESSION['down'] = $result['down'];
-              redirect("/photo/showAllPhoto");
+            $this->session->set_userdata('up', $result['up']);
+            $this->session->set_userdata('down', $result['down']);
+            redirect("/photo/showAllPhoto");
             //获取展示的数据
         } else {
             $this->load->view('user/login');

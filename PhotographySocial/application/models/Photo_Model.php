@@ -14,7 +14,7 @@ class Photo_Model extends CI_Model
     public $description = 'description';
 
     private $sql_getAllAlbum = 'select * from album where user_id = ?';
-    private $sql_savePhoto = 'insert into photo(user_id, album_name, photo_path, photo_name, description) VALUES(?,?,?,?,?)';
+    private $sql_savePhoto = 'insert into photo(user_id, username, album_name, photo_path, photo_name, description) VALUES(?,?,?,?,?,?)';
     private $sql_getPhoto_path = 'select * from photo where user_id = ?';
     private $sql_getAllPhoto_path = 'select * from photo';
 
@@ -41,8 +41,8 @@ class Photo_Model extends CI_Model
 
     // 保存新照片
     public function savePhoto($data, $name){
-        $post = array($this->session->userdata('userId'), $data[$this->album_name], $name,
-            $data[$this->photo_name], $data[$this->description]);
+        $post = array($this->session->userdata('userId'), $this->session->userdata('username'),
+            $data[$this->album_name], $name, $data[$this->photo_name], $data[$this->description]);
         $result = $this->db->query($this->sql_savePhoto, $post);
         return $result;
     }

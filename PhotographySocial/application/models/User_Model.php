@@ -74,8 +74,9 @@ class User_Model extends CI_Model {
 
     // 获取用户账户信息
     public function getUserInfo($userId){
-        $userInfo = $this->db->query($this->sql_user_detail,array($userId))->row_array();
+        $userInfo = $this->db->query($this->sql_user_detail, array($userId))->row_array();
         unset($userInfo['password']);
+        $userInfo['userId'] = $userInfo['id'];
         return $userInfo;
     }
 
