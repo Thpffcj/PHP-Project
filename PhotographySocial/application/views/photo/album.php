@@ -24,7 +24,7 @@
                         echo '<div class="panel-body">';
                         echo '<div class="row">';
                         echo '<div class="col-md-10">';
-                        echo '<h3><strong>' . $row['album_name'] . '</strong></h3>';
+                        echo '<h3><strong>' . '<a href="http://localhost/PhotographySocial/index.php/photo/showAlbumPhoto/' . ($row['album_name']) . '">' . $row['album_name'] .'</a>' . '</strong></h3>';
                         echo '<p>' . 'By ' . '<a href="http://localhost/PhotographySocial/index.php/album/showAllAlbum/' . $row['user_id'] . '">' . $userInfo['username'] .'</a>' . '</p>';
                         echo '<p>' . $row['description'] . '</p>';
                         echo '</div>';

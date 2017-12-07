@@ -62,4 +62,14 @@ class Photo extends CI_Controller {
         $this->load->view("common/header",$userInfo);
         $this->load->view("photo/photo", array('post'=>$post));
     }
+
+    // 展示我的指定相册所有照片
+    public function showAlbumPhoto($album_name){
+//        var_dump(urldecode($album_name));
+        $post = $this->Photo_Model->getAlbumPhoto(urldecode($album_name));
+//        var_dump($post);
+        $userInfo = array('userInfo'=>$_SESSION);
+        $this->load->view("common/header",$userInfo);
+        $this->load->view("photo/photo", array('post'=>$post));
+    }
 }

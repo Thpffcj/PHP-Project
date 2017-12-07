@@ -1,10 +1,10 @@
 
             <div class="nav nav-pills nav-stacked" role="tablist">
                 <ul class="nav nav-pills nav-stacked" role="tablist" style="width:140px;">
-                    <li role="presentation" class="active"><a
-                                href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">我的活动</a></li>
+                    <li role="presentation"><a
+                                href="<?= base_url() . 'index.php/activity/showActivity' ?>">我的活动</a></li>
                     <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showNewActivity' ?>">发布活动</a></li>
-                    <li role="presentation"><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">全部活动</a></li>
+                    <li role="presentation" class="active"><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">全部活动</a></li>
                 </ul>
             </div>
         </div>
@@ -27,7 +27,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <img height="48" width="48"
-                                                     src="<?= base_url() . 'uploads/' . $userInfo['avatar'] ?>"
+                                                     src="<?= base_url() . 'uploads/' . $row['avatar'] ?>"
                                                      style="float:left;">
                                             </div>
                                         </div>
@@ -40,7 +40,7 @@
                             <div class="panel panel-info">
                                 <div class="panel-body" style="text-align: center">
                                     <div class="text-info">
-                                        <strong><h3>还没有活动哦</h3></strong>
+                                        <strong><h3>还没有动态哦</h3></strong>
                                     </div>
                                 </div>
                             </div>

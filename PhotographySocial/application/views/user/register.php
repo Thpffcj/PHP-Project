@@ -51,7 +51,7 @@
                             <div class="formitm">
                                 <label class="lab">账号：</label>
                                 <div class="ipt">
-                                    <input type="text" class="u-ipt" name="username"/><span class="domain">@qq.com</span>
+                                    <input type="text" class="u-ipt" name="username"/><span class="domain"></span>
                                     <p>6~8个字符，包括字母，数字，下划线以字母开头，字母或数字结尾</p>
                                 </div>
                             </div>

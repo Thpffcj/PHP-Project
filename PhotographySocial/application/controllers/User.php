@@ -54,9 +54,9 @@ class User extends CI_Controller {
     public function register(){
         $db = $this->User_Model;
 
-        $user = $_POST[$db->c_username];
-        $pass = $_POST[$db->c_password];
-        $data = array($db->c_username=>$user,$db->c_password=>$pass);
+        $user = $_POST[$db->username];
+        $pass = $_POST[$db->password];
+        $data = array($db->username=>$user,$db->password=>$pass);
 
         $result = $db->registerUser($data);
         if ($result){
@@ -118,6 +118,22 @@ class User extends CI_Controller {
 //        var_dump($basicInfo);
         $result = $db->updateInfo($basicInfo);
         $this->showDetail();
+    }
+
+    /**
+     * 点赞
+     * @param $userid
+     */
+    public function up($userid){
+        $this->User_Model->up($userid);
+    }
+
+    /**
+     * 踩
+     * @param $userid
+     */
+    public function down($userid){
+        $this->User_Model->down($userid);
     }
 
     public function showUsers(){

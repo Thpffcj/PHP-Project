@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="Easy Life" content="">
     <meta name="description" content="">
     <meta name="author" content="Thpffcj">
@@ -13,7 +12,7 @@
 </head>
 
 <body>
-<!--<script src="http://localhost/GoSports/static/js/header.js"></script>-->
+<script src="http://localhost/PhotographySocial/static/js/header.js"></script>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -31,7 +30,7 @@
                 <li><a href="<?= base_url() . 'index.php/Photo/showAllPhoto' ?>">首页</a></li>
                 <li><a href="<?= base_url() . 'index.php/User/showDetail' ?>">个人信息</a></li>
                 <li><a href="<?= base_url() . 'index.php/Album/showAllAlbum' ?>">我的照片</a></li>
-                <li><a href="<?= base_url() . 'index.php/activity/showAllActivity' ?>">活动广场</a></li>
+                <li><a href="<?= base_url() . 'index.php/activity/showActivity' ?>">活动广场</a></li>
                 <li><a href="<?= base_url() . 'index.php/friend/getFriends' ?>">朋友们</a></li>
             </ul>
         </div><!--/.nav-collapse -->

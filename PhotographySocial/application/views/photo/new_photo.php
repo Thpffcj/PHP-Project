@@ -52,10 +52,6 @@
                             </div>
                         </div>
                     </form>
-<!--                    <form action="--><?php //echo site_url('user/upload')?><!--" method="post" enctype="multipart/form-data">-->
-<!--                        <input type="file" name="pic" />-->
-<!--                        <input type="submit" value="submit">-->
-<!--                    </form>-->
                 </div>
             </div>
         </div>
@@ -74,7 +70,6 @@
     }
 </script>
 
-<!--<script src="--><?//= base_url() . 'static/js/album.js' ?><!--"></script>-->
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="<?= base_url() . 'static/js/bootstrap.min.js' ?>"></script>
 </body>

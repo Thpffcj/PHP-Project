@@ -16,6 +16,7 @@ class Photo_Model extends CI_Model
     private $sql_getAllAlbum = 'select * from album where user_id = ?';
     private $sql_savePhoto = 'insert into photo(user_id, username, album_name, photo_path, photo_name, description) VALUES(?,?,?,?,?,?)';
     private $sql_getPhoto_path = 'select * from photo where user_id = ?';
+    private $sql_getAlbumPhoto_path = 'select * from photo where user_id = ? and album_name = ?';
     private $sql_getAllPhoto_path = 'select * from photo';
 
     public function __construct()
@@ -50,6 +51,14 @@ class Photo_Model extends CI_Model
     // 获取当前用户所有照片
     public function getPhoto(){
         $result = $this->db->query($this->sql_getPhoto_path, array($this->session->userdata('userId')))->result_array();
+        return $result;
+    }
+
+    // 获取当前用户指定相册照片
+    public function getAlbumPhoto($album_name){
+//        var_dump(array($this->session->userdata('userId')));
+//        var_dump($album_name);
+        $result = $this->db->query($this->sql_getAlbumPhoto_path, array($this->session->userdata('userId'), $album_name))->result_array();
         return $result;
     }
 

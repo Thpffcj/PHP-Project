@@ -28,10 +28,24 @@ class Activity extends CI_Controller {
         return $result;
     }
 
-    public function showAllActivity(){
+    /**
+     * 显示用户的活动
+     */
+    public function showActivity(){
         $post = $this->Activity_Model->getActivity();
         $userInfo = array('userInfo'=>$_SESSION);
         $this->load->view("common/header",$userInfo);
         $this->load->view("activity/activity", array('post'=>$post));
+    }
+
+    /**
+     * 显示所有的用户活动
+     */
+    public function showAllActivity(){
+        $post = $this->Activity_Model->getAllActivity();
+//        var_dump($post);
+        $userInfo = array('userInfo'=>$_SESSION);
+        $this->load->view("common/header",$userInfo);
+        $this->load->view("activity/all_activity", array('post'=>$post));
     }
 }

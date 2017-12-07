@@ -15,7 +15,7 @@ class User_Model extends CI_Model {
     public $avatar = 'avatar';
     private $sql_user_get = 'select * from user where username=? and password=?';
     private $sql_user_check_exist = 'select * from user where username=?';
-    private $sql_user_register = 'insert into user(username,password)values(?,?)';
+    private $sql_user_register = 'insert into user(username,password,avatar)values(?,?,?)';
     private $sql_user_detail = 'select * from user where id=?';
     private $sql_user_up = 'update user set up=? where userid=?';
     private $sql_user_down = 'update user set down=? where userid=?';
@@ -53,9 +53,10 @@ class User_Model extends CI_Model {
     public function registerUser($data){
         $user = $data[$this->username];
         $pass = $data[$this->password];
+        $avatar = 'image.jpg';
         $exist = $this->db->query($this->sql_user_check_exist,array($user));
         if ($exist->num_rows() == 0) {
-            $result1 = $this->db->query($this->sql_user_register,array($user,$pass));
+            $result1 = $this->db->query($this->sql_user_register,array($user,$pass,$avatar));
             if ($result1){
                 $info = true;
             }else {
@@ -85,6 +86,34 @@ class User_Model extends CI_Model {
         $result = $this->db->query($this->sql_user_detail_update,
                 array($basicInfo[$this->username], $basicInfo[$this->password], $basicInfo[$this->birthday],
                     $basicInfo[$this->phone], $basicInfo[$this->avatar], $basicInfo[$this->userId]));
+        return $result;
+    }
+
+    /**
+     * 点赞
+     * @param $userid
+     * @return mixed
+     */
+    public function up($userid){
+        $other = $this->db->query($this->sql_user_detail,array($userid))->row_array();
+        $data = array('up'=>($other['up']+1));
+        $where = 'id='.$userid;
+        $update = $this->db->update_string('user',$data,$where);
+        $result = $this->db->query($update);
+        return $result;
+    }
+
+    /**
+     * 踩
+     * @param $userid
+     * @return mixed
+     */
+    public function down($userid){
+        $other = $this->db->query($this->sql_user_detail,array($userid))->row_array();
+        $data = array('down'=>($other['down']+1));
+        $where = 'id='.$userid;
+        $update = $this->db->update_string('user',$data,$where);
+        $result = $this->db->query($update);
         return $result;
     }
 
